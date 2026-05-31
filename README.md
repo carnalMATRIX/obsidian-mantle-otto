@@ -1,34 +1,79 @@
 # Otto
 
-> [!CAUTION]
+> [!NOTE]
 > **Status: Beta (v1.0.0)**  
-> This plugin is currently in Alpha. Features and UI are subject to change.
+> Otto is currently in public Beta. Updates focus on broadening command integration and optimizing context injection pipelines.
 
-Otto is a production-ready, beautiful visual UI wrapper for the native Gemini CLI. It brings secure workspace agent operations directly into your Obsidian vault layout, allowing you to interact with AI agents in a context-aware environment.
+Otto is a production-ready, visual chat UI wrapper for the native Gemini CLI. It brings secure, workspace-aware AI agent operations directly into your Obsidian vault layout, allowing you to run complex context-aware terminal and folder tasks securely from a polished chat interface.
 
-## Features
+---
 
-- **Secure Integration**: Connects to the native Gemini CLI for secure, local-first agent operations.
-- **Visual Chat Interface**: A polished, responsive UI for interacting with agents.
-- **Context-Aware**: Injects current file and vault context into agent queries for more accurate results.
-- **Zenith Optimized**: Specifically designed to match the aesthetics of the [Zenith theme](https://github.com/carnalMATRIX/obsidian-mantle-zenith).
+## 🎨 Cohesive Styling
 
-## Installation
+Otto is designed to blend with the **Project Mantle** visual ecosystem. While functional on any theme, it is optimized to merge with the **Zenith theme**, adopting its typography, chat balloon borders, input boxes, glassmorphic headers, and terminal console styling.
 
-### Manual Installation
+---
 
-1. Download the `main.js`, `manifest.json`, and `styles.css` from the latest release.
-2. Create a folder named `mantle-otto` in your vault's `.obsidian/plugins/` directory.
-3. Move the downloaded files into that folder.
-4. Restart Obsidian and enable **Otto** in **Settings > Community plugins**.
+## ✨ Key Features
 
-## Development
+* **Visual Agent Chat Interface:** Chat with your workspace agent using a polished, responsive conversation window.
+* **Vault Context Injection:** Automatically injects current file contents, active selections, and vault folders into queries.
+* **Secure Integration:** Bridges with the native Gemini CLI to run commands, modify files, and perform research securely.
+* **Command Auditing:** Review and approve agent actions before they run, maintaining complete control.
 
-To modify this plugin:
+---
 
-1. Navigate to this directory in your terminal.
-2. Install dependencies: `npm install`
-3. Build the plugin: `npm run build`
-4. For active development, use: `npm run dev`
+## 📥 Installation
 
-This plugin is built with TypeScript and esbuild.
+### Method A: Via Obsidian Community Directory (Recommended once approved)
+1. Go to **Settings** > **Community plugins** > **Browse**.
+2. Search for **Otto**.
+3. Click **Install**, then click **Enable**.
+
+### Method B: Via BRAT (Beta Reviewer's Auto-update Tester)
+1. Install the **BRAT** plugin from Obsidian's community store.
+2. In BRAT settings, click **Add Beta plugin** and enter:
+   `https://github.com/carnalMATRIX/obsidian-mantle-otto`
+3. Click **Add Plugin** to download and auto-update.
+
+### Method C: Manual Installation
+1. Download `main.js`, `manifest.json`, and `styles.css` from the latest [GitHub Release](https://github.com/carnalMATRIX/obsidian-mantle-otto/releases).
+2. Inside your vault, navigate to `.obsidian/plugins/`.
+3. Create a folder named `mantle-otto` and paste the three downloaded files inside.
+4. Restart Obsidian, go to **Settings** > **Community plugins**, and enable **Otto**.
+
+---
+
+## 🔍 Troubleshooting
+
+### CLI Connection Errors
+* **Gemini CLI on Path:** Ensure the `gemini` CLI tool is installed and is accessible via your system's global `PATH`. You can verify this by opening a terminal and running `gemini --version`.
+* **Configuring CLI Path:** Go to **Settings** > **Otto** inside Obsidian and verify that the custom CLI path matches the location on your disk (e.g., `/usr/local/bin/gemini` or `/opt/homebrew/bin/gemini`).
+
+### Context Ingestion is missing information
+* **Focus States:** Make sure a markdown note tab is active and focused when you send queries that request "current file" context.
+
+---
+
+## 🛠️ Development
+
+If you wish to modify or customize this plugin locally:
+1. Clone this repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the compiler in watch mode:
+   ```bash
+   npm run dev
+   ```
+4. Build minified production code:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📄 License
+
+Copyright (c) 2026 Ryan Bakker. Released under a **Personal Use License**. Non-commercial, personal use only. Redistribution or modification for distribution is strictly prohibited. See the `LICENSE` file for full terms.
