@@ -1,0 +1,10 @@
+{
+  "id": "mantle-otto",
+  "name": "Otto",
+  "description": "A production-ready, beautiful visual UI wrapper for the native Gemini CLI, bringing secure workspace agent operations to your Obsidian vault layout.",
+  "version": "1.0.0",
+  "author": "Ryan Bakker",
+  "authorUrl": "https://ryanbakker.vercel.app/",
+  "isDesktopOnly": true,
+  "minAppVersion": "1.12.7"
+}

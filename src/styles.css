@@ -1,0 +1,474 @@
+.mantle-otto-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  font-family: var(--font-interface);
+  gap: 12px;
+}
+
+/* Scrollable Chat Area */
+.mantle-otto-chat-view {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Message Bubbles */
+.otto-message {
+  max-width: 85%;
+  padding: 8px 12px;
+  border-radius: 16px;
+  line-height: 1.6;
+  position: relative;
+  word-wrap: break-word;
+  font-size: 0.95em;
+  box-shadow: var(--shadow-premium);
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text; /* Enable selection */
+  transition: var(--tr-smooth);
+}
+.otto-message:hover {
+  transform: translateY(-1px);
+}
+
+.otto-message.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--interactive-accent) 0%, var(--interactive-accent) 100%);
+  color: var(--text-on-accent);
+  border-bottom-right-radius: 2px;
+  box-shadow: var(--glow-shadow), var(--shadow-premium);
+}
+
+.otto-message.bot {
+  align-self: flex-start;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  border-bottom-left-radius: 2px;
+  border: 1px solid var(--background-modifier-border);
+}
+.theme-dark .otto-message.bot {
+  background-color: rgba(22, 27, 34, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+/* Markdown Specifics */
+.otto-message .markdown-rendered {
+  width: 100%;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
+}
+
+.otto-message p {
+  margin: 0 0 12px 0;
+}
+
+.otto-message p:last-child {
+  margin-bottom: 0;
+}
+
+.otto-message code {
+  background-color: var(--code-background);
+  padding: 2px 6px;
+  border-radius: var(--border-radius-button);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
+}
+
+.otto-message pre {
+  background-color: var(--code-background);
+  border: 1px solid var(--background-modifier-border);
+  padding: 12px;
+  border-radius: var(--border-radius-card);
+  overflow-x: auto;
+  margin: 8px 0;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+          user-select: text;
+}
+
+/* Copy Button for Bot Messages */
+.otto-message.bot .otto-copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  opacity: 0;
+  transition: var(--tr-smooth);
+  padding: 4px;
+  border-radius: var(--border-radius-button);
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+.otto-message.bot .otto-copy-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+  transform: scale(1.05);
+}
+
+.otto-message.bot:hover .otto-copy-btn {
+  opacity: 1;
+}
+
+/* Input Area */
+.mantle-otto-input-area {
+  background-color: var(--background-primary);
+}
+
+.mantle-otto-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.mantle-otto-input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 6px;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  padding: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.mantle-otto-input-container:focus-within {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 2px var(--background-modifier-border-focus);
+}
+
+.mantle-otto-input {
+  flex-grow: 1;
+  min-height: 60px;
+  max-height: 250px;
+  padding: 8px;
+  border: none;
+  background-color: transparent !important;
+  color: var(--text-normal);
+  resize: none;
+  font-family: var(--font-text);
+  line-height: 1.5;
+}
+.mantle-otto-input:hover {
+  background-color: transparent !important;
+}
+.mantle-otto-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  background-color: transparent !important;
+}
+.mantle-otto-input::-moz-placeholder {
+  color: var(--text-faint);
+  opacity: 1;
+}
+.mantle-otto-input::placeholder {
+  color: var(--text-faint);
+  opacity: 1;
+}
+
+/* Action Buttons Container (Right Column) */
+.mantle-otto-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  border-left: 1px solid var(--background-modifier-border);
+  padding-left: 8px;
+}
+
+.otto-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+}
+.otto-action-btn:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+  transform: scale(1.05);
+}
+.otto-action-btn.submit {
+  color: var(--interactive-accent);
+  transition: all 0.2s ease;
+}
+.otto-action-btn.submit:not(:disabled) {
+  background-color: var(--interactive-accent);
+  color: white;
+}
+.otto-action-btn.submit:not(:disabled):hover {
+  background-color: var(--interactive-accent-hover);
+  filter: brightness(1.1);
+}
+.otto-action-btn.submit:disabled {
+  background-color: transparent;
+  color: var(--interactive-accent);
+  opacity: 0.4;
+}
+.otto-action-btn.cancel {
+  color: var(--text-error);
+}
+.otto-action-btn.reset {
+  color: var(--text-muted);
+}
+.otto-action-btn.reset:hover {
+  color: var(--text-error);
+}
+.otto-action-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.otto-action-btn svg, .otto-action-btn .lucide {
+  transform: scale(1.8);
+  display: block;
+}
+
+/* Auth Gate UI */
+.otto-auth-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  margin: 20px;
+  gap: 16px;
+}
+.otto-auth-gate h3 {
+  margin: 0;
+  color: var(--text-normal);
+}
+.otto-auth-gate p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9em;
+  max-width: 300px;
+}
+.otto-auth-gate .otto-auth-btn {
+  margin-top: 8px;
+}
+
+/* Status & Auth States */
+.mantle-otto-status {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.otto-auth-notice {
+  padding: 12px;
+  background-color: var(--background-modifier-error);
+  color: white;
+  border-radius: 8px;
+  font-size: 0.9em;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.otto-auth-btn {
+  align-self: flex-start;
+  background-color: white;
+  color: var(--text-error);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Loading Animation: Otto SVG Lava Lamp */
+.otto-loader-message {
+  align-self: flex-start;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  border-radius: 12px;
+  border-bottom-left-radius: 2px;
+  border: 1px solid var(--background-modifier-border);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-premium);
+  max-width: 85%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  transition: var(--tr-smooth);
+}
+
+.otto-loading-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.otto-loading-text {
+  font-size: 0.85em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  animation: otto-fade-in-out 2.5s infinite ease-in-out;
+  font-family: var(--header-font);
+}
+
+@keyframes otto-fade-in-out {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+.otto-loader {
+  --color-one: #4285f4; /* Gemini Blue */
+  --color-two: #9b72cb; /* Gemini Purple */
+  --color-three: #d96570; /* Gemini Magenta/Pink */
+  --color-four: #3f51b5; /* Indigo */
+  --time-animation: 4s; /* Slower for futuristic feel */
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+.otto-loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-top: solid 1px var(--color-one);
+  border-bottom: solid 1px var(--color-two);
+  background: linear-gradient(180deg, rgba(66, 133, 244, 0.2), rgba(155, 114, 203, 0.3));
+  box-shadow: inset 0 10px 10px 0 rgba(66, 133, 244, 0.2), inset 0 -10px 10px 0 rgba(155, 114, 203, 0.2);
+  transform: scale(0.3);
+  transform-origin: top left;
+}
+.otto-loader .otto-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(180deg, var(--color-one) 0%, var(--color-two) 33%, var(--color-three) 66%, var(--color-four) 100%);
+  background-size: 100% 400%;
+  animation: otto-gradient-shift var(--time-animation) ease-in-out infinite alternate;
+  mask: url(#otto-clipping);
+  -webkit-mask: url(#otto-clipping);
+  transform: scale(0.3);
+  transform-origin: top left;
+}
+.otto-loader svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  transform: scale(0.3);
+  transform-origin: top left;
+}
+.otto-loader svg #otto-clipping {
+  filter: contrast(15);
+  animation: otto-roundness calc(var(--time-animation) / 2) linear infinite;
+}
+.otto-loader svg #otto-clipping polygon {
+  filter: blur(7px);
+}
+.otto-loader svg #otto-clipping polygon:nth-child(1) {
+  transform-origin: 75% 25%;
+  transform: rotate(90deg);
+}
+.otto-loader svg #otto-clipping polygon:nth-child(2) {
+  transform-origin: 50% 50%;
+  animation: otto-rotation var(--time-animation) linear infinite reverse;
+}
+.otto-loader svg #otto-clipping polygon:nth-child(3) {
+  transform-origin: 50% 60%;
+  animation: otto-rotation var(--time-animation) linear infinite;
+  animation-delay: calc(var(--time-animation) / -3);
+}
+.otto-loader svg #otto-clipping polygon:nth-child(4) {
+  transform-origin: 40% 40%;
+  animation: otto-rotation var(--time-animation) linear infinite reverse;
+}
+.otto-loader svg #otto-clipping polygon:nth-child(5) {
+  transform-origin: 40% 40%;
+  animation: otto-rotation var(--time-animation) linear infinite reverse;
+  animation-delay: calc(var(--time-animation) / -2);
+}
+.otto-loader svg #otto-clipping polygon:nth-child(6) {
+  transform-origin: 60% 40%;
+  animation: otto-rotation var(--time-animation) linear infinite;
+}
+.otto-loader svg #otto-clipping polygon:nth-child(7) {
+  transform-origin: 60% 40%;
+  animation: otto-rotation var(--time-animation) linear infinite;
+  animation-delay: calc(var(--time-animation) / -1.5);
+}
+
+@keyframes otto-gradient-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+@keyframes otto-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes otto-roundness {
+  0%, 60%, 100% {
+    filter: contrast(15);
+  }
+  20%, 40% {
+    filter: contrast(3);
+  }
+}
+/* Suggestion Menu Styling */
+.otto-suggestion-item {
+  font-family: var(--font-monospace);
+  font-size: 0.85em;
+  padding: 4px 8px;
+}
