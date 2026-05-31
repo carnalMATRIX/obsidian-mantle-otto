@@ -1,9 +1,5 @@
 # Otto
 
-> [!NOTE]
-> **Status: Beta (v1.0.0)**  
-> Otto is currently in public Beta. Updates focus on broadening command integration and optimizing context injection pipelines.
-
 Otto is a production-ready, visual chat UI wrapper for the native Gemini CLI. It brings secure, workspace-aware AI agent operations directly into your Obsidian vault layout, allowing you to run complex context-aware terminal and folder tasks securely from a polished chat interface.
 
 ---
@@ -25,7 +21,7 @@ Otto is designed to blend with the **Project Mantle** visual ecosystem. While fu
 
 ## 📥 Installation
 
-### Method A: Via Obsidian Community Directory (Recommended once approved)
+### Method A: Via Obsidian Community Directory (Recommended)
 1. Go to **Settings** > **Community plugins** > **Browse**.
 2. Search for **Otto**.
 3. Click **Install**, then click **Enable**.
