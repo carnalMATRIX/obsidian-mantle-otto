@@ -2,7 +2,7 @@
   "id": "mantle-otto",
   "name": "Mantle Otto",
   "description": "A production-ready, beautiful visual UI wrapper for the native Gemini CLI, bringing secure workspace agent operations to your vault layout.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Ryan Bakker",
   "authorUrl": "https://ryanbakker.vercel.app/",
   "isDesktopOnly": true,
